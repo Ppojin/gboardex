@@ -27,4 +27,6 @@ public interface GroupService {
     List<LikeVO> likeVOList(int articleID, int userID) throws Exception;
 
     String like(int articleID, int userID) throws Exception;
+
+    String removeGroup(int groupID, int userID) throws Exception;
 }

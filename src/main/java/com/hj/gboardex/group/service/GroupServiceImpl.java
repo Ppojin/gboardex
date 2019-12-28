@@ -92,4 +92,8 @@ public class GroupServiceImpl implements GroupService{
     public String like(int articleID, int userID) throws Exception {
         return groupDAO.like(articleID, userID);
     }
+    @Override
+    public String removeGroup(int groupID, int userID) throws Exception{
+        return groupDAO.removeGroup(groupID, userID);
+    }
 }

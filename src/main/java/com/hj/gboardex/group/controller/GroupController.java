@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
@@ -75,6 +76,7 @@ public class GroupController {
         return "group/board/index";
     }
     // =================================== ./board ===================================
+
     @PostMapping(value="like")
     public @ResponseBody String like(
             @RequestParam("articleID") int articleID,
@@ -87,6 +89,7 @@ public class GroupController {
         return result;
     }
     // =================================== ./like ===================================
+
     @PostMapping(value="insertArticle")
     public @ResponseBody String gboardexInsertArticle (
             HttpServletResponse response,
@@ -109,8 +112,8 @@ public class GroupController {
         groupService.removeArticle(removeArticleID, userID);
         return "OK";
     }
-
     // =================================== ./article ===================================
+
     @PostMapping(value="insertReply")
     public @ResponseBody String gboardexInsertReply (
             HttpServletResponse response,
@@ -126,8 +129,8 @@ public class GroupController {
         groupService.insertReply(replyVO);
         return "OK";
     }
-
     // =================================== ./reply ===================================
+
     @RequestMapping(value="invite")
     public String listAllSubscriber(Model model, @SessionAttribute("currentGroup") MainVO mainVO) {
         SubscribeVO subscribeVO = new SubscribeVO();
@@ -154,8 +157,8 @@ public class GroupController {
 
         return "OK";
     }
-
     // =================================== ./invite ===================================
+
     @PostMapping("insertVote")
     public @ResponseBody String insertVote(
             @SessionAttribute("currentGroup") MainVO mainVO,
@@ -166,8 +169,8 @@ public class GroupController {
         groupService.insertVote(voteDTO);
         return "OK";
     }
+    // =================================== ./vote ===================================
 
-    // =================================== ./invite ===================================
     @RequestMapping("calendar")
     public String calender(@SessionAttribute("currentGroup") MainVO mainVO) {
         return "group/calendar/index";
@@ -177,10 +180,27 @@ public class GroupController {
     public @ResponseBody Object listAllSchedule (@SessionAttribute("currentGroup") MainVO mainVO) throws Exception {
         return groupService.listAllSchedule(mainVO.getGroupID());
     }
+    // =================================== ./calender ===================================
 
-    // =================================== ./admin ===================================
     @RequestMapping("admin")
     public String admin () throws Exception {
         return "group/admin/index";
     }
+
+    @PostMapping("admin/removeGroup")
+    public @ResponseBody String removeGroup (HttpServletRequest request) throws Exception {
+        MainVO mainVO = (MainVO) request.getSession().getAttribute("currentGroup");
+        UserVO userVO = (UserVO) request.getSession().getAttribute("login");
+        int groupID = mainVO.getGroupID();
+        int groupManagerID = mainVO.getGroupManager();
+        int userID = userVO.getUserID();
+        if (groupManagerID == userID){
+            groupService.removeGroup(groupID, userID);
+            return "SUCCESS";
+        } else {
+            return "FAIL";
+        }
+    }
+    // =================================== ./admin ===================================
+
 }

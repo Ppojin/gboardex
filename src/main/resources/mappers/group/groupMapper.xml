@@ -30,4 +30,23 @@
             #{userID},left(replace(uuid(),"-",""),12),CURRENT_TIMESTAMP);
     </insert>
 
+    <select id="subscribeCount" parameterType="int" resultType="int">
+        SELECT count(`userID`) FROM `subscribe` WHERE `groupID` = ${groupID} GROUP BY `groupID`;
+    </select>
+    <select id="confirmGroupManager" parameterType="int" resultType="int">
+        SELECT `manager` FROM `group` WHERE `groupID` = ${groupID};
+    </select>
+    <delete id="groupDelete" parameterType="int">
+        DELETE FROM `account_due` WHERE `groupID` = ${groupID};
+        DELETE FROM `article` WHERE `groupID` = ${groupID};
+--         DELETE FROM `article_like` WHERE `groupID` = ${groupID};
+        DELETE FROM `image` WHERE `groupID` = ${groupID};
+        DELETE FROM `image_reply` WHERE `groupID` = ${groupID};
+        DELETE FROM `reply` WHERE `groupID` = ${groupID};
+        DELETE FROM `schedule_attend` WHERE `groupID` = ${groupID};
+        DELETE FROM `subscribe` WHERE `groupID` = ${groupID};
+--         DELETE FROM `vote_item` WHERE `groupID` = ${groupID};
+--         DELETE FROM `vote_selected` WHERE `groupID` = ${groupID};
+        DELETE FROM `group` WHERE `groupID` = ${groupID};
+    </delete>
 </mapper>

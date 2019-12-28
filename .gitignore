@@ -5,3 +5,4 @@
 target/
 db-context.xml
 .DS_store
+.gitignore

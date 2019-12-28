@@ -6,13 +6,11 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
 import java.sql.Date;
 import java.util.*;
 
@@ -200,4 +198,17 @@ public class GroupDAOImpl implements GroupDAO{
         }
     }
 
+    @Override
+    public String removeGroup(int groupID, int userID) throws Exception{
+        String removeGroupNAMESPACE = "com.hj.gboardex.mappers.group.GroupMapper";
+        int subscribeCount = sqlSession.selectOne(removeGroupNAMESPACE + ".subscribeCount", groupID);
+        if (subscribeCount == 1){
+            int groupManager = sqlSession.selectOne(removeGroupNAMESPACE + ".confirmGroupManager", groupID);
+            if (groupManager == userID){
+                sqlSession.delete(removeGroupNAMESPACE + ".groupDelete", groupID);
+                return "SUCCESS";
+            }
+        }
+        return "FAIL";
+    }
 }

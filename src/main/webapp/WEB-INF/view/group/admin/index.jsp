@@ -61,14 +61,6 @@
     <%@include file="/include/controll_sidebar.jsp"%>
     <%@include file="/include/main_footer.jsp"%>
 </div>
-<%-- jQuery --%>
-<script src="/plugins/jquery/jquery.min.js"></script>
-<%-- jquery-ui for datepicker --%>
-<%--<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>--%>
-<%-- Bootstrap 4 --%>
-<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<%-- AdminLTE App --%>
-<script src="/dist/js/adminlte.min.js"></script>
-<%-- ./wrapper --%>
+<%@include file="script.jsp"%>
 </body>
 </html>
