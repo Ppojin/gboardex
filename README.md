@@ -25,8 +25,16 @@
 | MyBatis | 3.5.3 |
 이하 생략...
 
-## SQL
+## 설치
 1. 프로젝트 최상단의 `maindb.sql` 을 이용하여 테이블 생성
+1. `./src/main/webapp/WEB-INF/conf/db-context_back.xml` 파일의 ID와 password를 설치된 MySQL DBMS 에 맞게 설정 
+    ```xml
+    <property name="username" value="ID" />
+    <property name="password" value="password" />    
+    ``` 
 1. `maven` 을 이용하여 프로젝트 라이브러리 불러오기
 
-
+## 목표 설정
+| 목표 | 시작 | 기한 | 완료 |
+|---|---|---|---|
+| 그룹 삭제 만들기 | DEC 28, 2019 | | | 
