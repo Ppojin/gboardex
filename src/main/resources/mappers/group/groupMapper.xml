@@ -19,7 +19,7 @@
     <select id="groupAuth" resultMap="groupVOResultMap">
         SELECT * FROM `group` a RIGHT JOIN (SELECT * FROM subscribe WHERE userID = #{userID}) b ON a.groupID = b.groupID WHERE a.groupID = #{groupID}
     </select>
-    <insert id="createGroup">
+    <insert id="createGroup" useGeneratedKeys="true" keyProperty="groupID">
         INSERT INTO `group`(`manager`,`groupName`,`summary`, `groupColor`, `imgExt`)
         VALUES(#{userID},#{groupName},#{groupSummary}, #{groupColor}, #{groupImgExt});
     </insert>

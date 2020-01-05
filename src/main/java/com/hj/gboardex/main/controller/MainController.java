@@ -52,19 +52,17 @@ public class MainController {
             RedirectAttributes redirectAttributes,
             HttpServletRequest request) throws Exception {
 
-        mainService.createGroup(mainVO);
-
         String rootPath = "/static/groupMainImage/";
         String path = request.getSession().getServletContext().getRealPath(rootPath);
         String savedName = groupMainPic.getOriginalFilename();
-        assert savedName != null;
         String ext = savedName.substring(savedName.lastIndexOf( "." ));
-
-        File target = new File(path, mainVO.getGroupID() + ext);
-        FileCopyUtils.copy(groupMainPic.getBytes(), target);
 
         mainVO.setGroupImgExt(ext);
         mainVO.setUserID(userVO.getUserID());
+        mainService.createGroup(mainVO);
+
+        File target = new File(path, mainVO.getGroupID() + ext);
+        FileCopyUtils.copy(groupMainPic.getBytes(), target);
 
         // Todo: 그룹 생성 메세지
         return "redirect:/group/" + mainVO.getGroupID();
