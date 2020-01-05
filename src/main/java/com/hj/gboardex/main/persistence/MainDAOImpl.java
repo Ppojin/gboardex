@@ -38,7 +38,7 @@ public class MainDAOImpl implements MainDAO {
         SubscribeVO result = sqlSession.selectOne(NAMESPACE + ".selectOneGroupName", subscribeVO);
         if (result.getUserID() == 0){
             sqlSession.update(NAMESPACE + ".updateSubscribe_joinGroup", subscribeVO);
-            return result.getGroupURL();
+            return Integer.toString(result.getGroupID());
         } else {
             return "fail";
         }

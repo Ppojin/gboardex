@@ -41,9 +41,9 @@ public class GroupInterceptor extends HandlerInterceptorAdapter {
 
         logger.info(request.getServletPath());
 
-        // groupURL 가져오기
+        // groupID 가져오기
         List<String> listURL = Arrays.asList(request.getServletPath().split("[/?#]"));
-        String groupURL = listURL.get(2);
+        Integer groupID = Integer.parseInt(listURL.get(2));
 
         // session 에서 mainVO 가져오기
         MainVO originMainVO = (MainVO) request.getSession().getAttribute("currentGroup");
@@ -54,7 +54,7 @@ public class GroupInterceptor extends HandlerInterceptorAdapter {
             if (listURL.size() > 3){
                 if (listURL.get(3).equals("admin")){
                     logger.info("confirm admin...");
-                    MainVO mainVO = confirmSession(userID, groupURL, httpSession);
+                    MainVO mainVO = confirmSession(userID, groupID, httpSession);
                     if (mainVO.getGroupManager() == userVO.getUserID()){
                         logger.info("confirm admin success \ngroupManager = "+mainVO.getGroupManager()+"\nuser = "+userVO.getUserID());
                         return true;
@@ -65,18 +65,18 @@ public class GroupInterceptor extends HandlerInterceptorAdapter {
                 }
             }
 
-            if (originMainVO.getGroupURL() != null){
-                if (originMainVO.getGroupURL().equals(groupURL)) {
+            if (originMainVO.getGroupID() != null){
+                if (originMainVO.getGroupID() == groupID) {
                     logger.info("Already joined this group");
                     return true;
                 }
             }
         }
 
-        MainVO mainVO = confirmSession(userID, groupURL, httpSession);
-        // DB.groupURL 과 /group/{groupURL} 대조
-        if (mainVO.getGroupURL() != null){
-            if (mainVO.getGroupURL().equals(groupURL)){
+        MainVO mainVO = confirmSession(userID, groupID, httpSession);
+        // DB.groupID 과 /group/{groupID} 대조
+        if (mainVO.getGroupID() != null){
+            if (mainVO.getGroupID().equals(groupID)){
                 logger.info("Group join success");
                 return true;
             }
@@ -88,10 +88,10 @@ public class GroupInterceptor extends HandlerInterceptorAdapter {
     }
 
 
-    private MainVO confirmSession(int userID, String groupURL, HttpSession httpSession) {
+    private MainVO confirmSession(int userID, Integer groupID, HttpSession httpSession) {
         // mappers.group.GroupMapper.groupAuth 이용해서 DB 조회
         MainVO mainVO = new MainVO();
-        GroupDTO groupDTO = new GroupDTO(userID, groupURL);
+        GroupDTO groupDTO = new GroupDTO(userID, groupID);
         if (sqlSession.selectOne(NAMESPACE + ".groupAuth", groupDTO) != null) {
             mainVO = sqlSession.selectOne(NAMESPACE + ".groupAuth", groupDTO);
             httpSession.setAttribute(GROUP, mainVO);

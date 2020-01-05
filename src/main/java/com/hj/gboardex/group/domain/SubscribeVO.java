@@ -18,10 +18,6 @@ public class SubscribeVO { private int subscribeID;
     public String getGroupName() { return groupName; }
     public void setGroupName(String groupName) { this.groupName = groupName; }
 
-    private String groupURL;
-    public String getGroupURL() { return groupURL; }
-    public void setGroupURL(String groupURL) { this.groupURL = groupURL; }
-
     @Override
     public String toString() {
         return "SubscribeVO{" +

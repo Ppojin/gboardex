@@ -60,14 +60,14 @@ public class MainController {
         assert savedName != null;
         String ext = savedName.substring(savedName.lastIndexOf( "." ));
 
-        File target = new File(path, mainVO.getGroupURL() + ext);
+        File target = new File(path, mainVO.getGroupID() + ext);
         FileCopyUtils.copy(groupMainPic.getBytes(), target);
 
         mainVO.setGroupImgExt(ext);
         mainVO.setUserID(userVO.getUserID());
 
         // Todo: 그룹 생성 메세지
-        return "redirect:/group/" + mainVO.getGroupURL();
+        return "redirect:/group/" + mainVO.getGroupID();
     }
 
     @PostMapping("inviteCodeInput")

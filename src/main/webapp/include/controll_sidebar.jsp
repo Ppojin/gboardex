@@ -26,7 +26,7 @@
             <c:if test="${currentGroup.groupManager == login.userID}">
             <hr style="border-top: 2px dotted #999;"><!-- ========= -->
             <li class="nav-item">
-                <a href="/group/${currentGroup.groupURL}/admin" class="nav-link">그룹(${currentGroup.groupName}) 관리</a>
+                <a href="/group/${currentGroup.groupID}/admin" class="nav-link">그룹(${currentGroup.groupName}) 관리</a>
             </li>
             </c:if>
             <li>${currentGroup.groupManager}</li>

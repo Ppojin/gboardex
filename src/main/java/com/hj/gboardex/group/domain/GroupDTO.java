@@ -2,11 +2,11 @@ package com.hj.gboardex.group.domain;
 
 public class GroupDTO {
     private int userID;
-    private String groupURL;
+    private Integer groupID;
 
-    public GroupDTO(int userID, String groupURL) {
+    public GroupDTO(int userID, Integer groupID) {
         this.userID = userID;
-        this.groupURL = groupURL;
+        this.groupID = groupID;
     }
 
     public int getUserID() {
@@ -17,11 +17,11 @@ public class GroupDTO {
         this.userID = userID;
     }
 
-    public String getGroupURL() {
-        return groupURL;
+    public Integer getgroupID() {
+        return groupID;
     }
 
-    public void setGroupURL(String groupURL) {
-        this.groupURL = groupURL;
+    public void setgroupID(Integer groupID) {
+        this.groupID = groupID;
     }
 }

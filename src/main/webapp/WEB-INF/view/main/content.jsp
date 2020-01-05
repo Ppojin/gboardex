@@ -21,7 +21,7 @@
                             <span class="info-box-number">${group.groupName}</span>
                             <span class="info-box-text">${group.groupSummary}</span>
                         </div>
-                        <a href="${path}/group/${group.groupURL}" class="stretched-link"></a>
+                        <a href="${path}/group/${group.groupID}" class="stretched-link"></a>
                         <!-- /.info-box-content -->
                     </div>
                     <!-- /.info-box -->

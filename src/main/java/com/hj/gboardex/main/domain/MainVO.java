@@ -3,10 +3,9 @@ package com.hj.gboardex.main.domain;
 import java.sql.Date;
 
 public class MainVO {
-    private int groupID;
+    private Integer groupID;
     private int groupManager;
     private String groupName;
-    private String groupURL;
     private String groupSummary;
     private Date groupCreateDate;
     private int groupColor;
@@ -22,7 +21,6 @@ public class MainVO {
                 "groupID=" + groupID +
                 ", groupManager=" + groupManager +
                 ", groupName='" + groupName + '\'' +
-                ", groupURL='" + groupURL + '\'' +
                 ", groupSummary='" + groupSummary + '\'' +
                 ", groupCreateDate=" + groupCreateDate +
                 ", groupColor=" + groupColor +
@@ -37,7 +35,7 @@ public class MainVO {
     }
 
     public void setGroupImageURL(String ext){
-        this.groupImageURL = "/static/groupMainImage/" + groupURL + ext;
+        this.groupImageURL = "/static/groupMainImage/" + groupID + ext;
     }
     public String getGroupImageURL(){
         return groupImageURL;
@@ -52,11 +50,11 @@ public class MainVO {
         this.groupColorStr = groupColorStr;
     }
 
-    public int getGroupID() {
+    public Integer getGroupID() {
         return groupID;
     }
 
-    public void setGroupID(int groupID) {
+    public void setGroupID(Integer groupID) {
         this.groupID = groupID;
     }
 
@@ -74,14 +72,6 @@ public class MainVO {
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
-    }
-
-    public String getGroupURL() {
-        return groupURL;
-    }
-
-    public void setGroupURL(String groupURL) {
-        this.groupURL = groupURL;
     }
 
     public String getGroupSummary() {

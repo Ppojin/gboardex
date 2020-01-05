@@ -48,19 +48,19 @@
                         </div>
                     </div>
                     <!-- ./그룹명 -->
-                    <!-- 그룹url -->
-                    <div class="form-group">
-                        <label>그룹 URL</label>
-                        <div class="input-group input-group-sm">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">/</span>
-                            </div>
-                            <input name="groupURL" id="cg_url" type="text" class="form-control">
-                            <span class="input-group-append">
-                                <button type="button" class="btn btn-info btn-flat">중복확인</button>
-                            </span>
-                        </div>
-                    </div>
+<%--                    <!-- 그룹url -->--%>
+<%--                    <div class="form-group">--%>
+<%--                        <label>그룹 URL</label>--%>
+<%--                        <div class="input-group input-group-sm">--%>
+<%--                            <div class="input-group-prepend">--%>
+<%--                                <span class="input-group-text">/</span>--%>
+<%--                            </div>--%>
+<%--                            <input name="groupURL" id="cg_url" type="text" class="form-control">--%>
+<%--                            <span class="input-group-append">--%>
+<%--                                <button type="button" class="btn btn-info btn-flat">중복확인</button>--%>
+<%--                            </span>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                     <!-- ./그룹url -->
                     <!-- 그룹 요약 -->
                     <div class="form-group pb-1">

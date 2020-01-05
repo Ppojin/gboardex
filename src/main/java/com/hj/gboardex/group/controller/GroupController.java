@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
-@RequestMapping(value="group/{groupURL}")
+@RequestMapping(value="group/{groupID}")
 public class GroupController {
     private static final Logger logger = LoggerFactory.getLogger(GroupController.class);
     private final GroupService groupService;

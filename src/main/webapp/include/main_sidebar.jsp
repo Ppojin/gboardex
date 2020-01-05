@@ -2,8 +2,8 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/group/${currentGroup.groupURL}" class="brand-link">
-        <img src="${currentGroup.groupImageURL}" alt="${currentGroup.groupURL} Image" class="brand-image img-circle elevation-3"
+    <a href="/group/${currentGroup.groupID}" class="brand-link">
+        <img src="${currentGroup.groupImageURL}" alt="${currentGroup.groupID} Image" class="brand-image img-circle elevation-3"
              style="opacity: .8">
         <span class="brand-text font-weight-light">${currentGroup.groupName}</span>
     </a>
@@ -49,19 +49,19 @@
 <%--                    </ul>--%>
 <%--                </li>--%>
                 <li class="nav-item">
-                    <a href="/group/${currentGroup.groupURL}" class="nav-link">
+                    <a href="/group/${currentGroup.groupID}" class="nav-link">
                         <i class="nav-icon fas fa-clipboard"></i>
                         <p>게시판<%--<span class="right badge badge-danger">New</span>--%></p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/group/${currentGroup.groupURL}/calendar" class="nav-link">
+                    <a href="/group/${currentGroup.groupID}/calendar" class="nav-link">
                         <i class="nav-icon far fa-calendar-alt"></i>
                         <p>달력<%--<span class="right badge badge-danger">New</span>--%></p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="/group/${currentGroup.groupURL}/invite" class="nav-link">
+                    <a href="/group/${currentGroup.groupID}/invite" class="nav-link">
                         <i class="nav-icon fas fa-user-friends"></i><p> 초대</p>
                     </a>
                 </li>
