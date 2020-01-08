@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+<nav class="main-header navbar navbar-expand-md navbar-light navbar-white" style="z-index:2">
     <div class="container">
 <%--        <a href="/group/${currentGroup.groupID}" class="navbar-brand">--%>
 <%--            <img src="${currentGroup.groupImageURL}" alt="${currentGroup.groupID} Image" class="brand-image img-circle elevation-3"--%>

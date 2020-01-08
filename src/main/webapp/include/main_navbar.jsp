@@ -25,14 +25,44 @@
                 </div>
             </div>
         </form>
-<%--        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">--%>
-<%--        </ul>--%>
-        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-            <li class="nav-item">
-                <a class="navbar-brand nav-link" data-widget="control-sidebar" data-slide="true" href="#">
-                    <span class="brand-text font-weight-light">${login.userName}</span>
-                    <img src="https://www.gravatar.com/avatar/${login.userGravatar}?d=identicon&amp;f=y" alt="${login.userName} Image" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <%-- 로그인 정보 --%>
+        <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto" style="z-index:2">
+            <li class="nav-item dropdown user-menu">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                    <img src="https://www.gravatar.com/avatar/${login.userGravatar}?d=identicon&amp;f=y" class="user-image img-circle elevation-2" alt="User Image">
+                    <span class="d-none d-md-inline">${login.userName}</span>
                 </a>
+                <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <!-- User image -->
+                    <li class="user-header bg-primary">
+                        <img src="https://www.gravatar.com/avatar/${login.userGravatar}?d=identicon&amp;f=y" class="img-circle elevation-2" alt="User Image">
+
+                        <p>
+                            ${login.userName}
+                            <%--                        <small>Member since Nov. 2012</small>--%>
+                        </p>
+                    </li>
+                    <!-- Menu Body -->
+<%--                    <li class="user-body">--%>
+<%--                        <div class="row">--%>
+<%--                            <div class="col-4 text-center">--%>
+<%--                                <a href="#">Followers</a>--%>
+<%--                            </div>--%>
+<%--                            <div class="col-4 text-center">--%>
+<%--                                <a href="#">Sales</a>--%>
+<%--                            </div>--%>
+<%--                            <div class="col-4 text-center">--%>
+<%--                                <a href="#">Friends</a>--%>
+<%--                            </div>--%>
+<%--                        </div>--%>
+<%--                        <!-- /.row -->--%>
+<%--                    </li>--%>
+                    <!-- Menu Footer-->
+                    <li class="user-footer">
+<%--                        <a href="#" class="btn btn-default btn-flat">Profile</a>--%>
+                        <a href="/user/logout" class="btn btn-default btn-flat float-right">Sign out</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </div>
