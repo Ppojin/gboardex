@@ -24,10 +24,10 @@
 <%--            <c:set var="groupURL" value="/${currentGroup.groupURL}"/>--%>
 <%--            <c:if test="${currentGroup.groupManager == login.userID && groupURL == contextPath}">--%>
             <c:if test="${currentGroup.groupManager == login.userID}">
-            <hr style="border-top: 2px dotted #999;"><!-- ========= -->
-            <li class="nav-item">
-                <a href="/group/${currentGroup.groupID}/admin" class="nav-link">그룹(${currentGroup.groupName}) 관리</a>
-            </li>
+                <hr style="border-top: 2px dotted #999;"><!-- ========= -->
+                <li class="nav-item">
+                    <a href="/group/${currentGroup.groupID}/admin" class="nav-link">그룹(${currentGroup.groupName}) 관리</a>
+                </li>
             </c:if>
             <li>${currentGroup.groupManager}</li>
             <li>${login.userID}</li>
