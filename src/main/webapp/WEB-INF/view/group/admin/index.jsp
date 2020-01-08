@@ -20,6 +20,7 @@
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
+    <%@include file="/include/main_navbar.jsp"%>
     <%@include file="/include/group_navbar.jsp"%>
     <div class="content-wrapper">
         <div class="content-header">

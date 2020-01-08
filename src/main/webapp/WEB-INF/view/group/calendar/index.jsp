@@ -30,8 +30,8 @@
 </head>
 <body class="layout-top-nav">
 <div class="wrapper">
+    <%@include file="/include/main_navbar.jsp"%>
     <%@include file="/include/group_navbar.jsp"%>
-<%--    <%@include file="/include/main_sidebar.jsp"%>--%>
     <div class="content-wrapper">
         <div class="container">
             <%@include file="content_header.jsp"%>

@@ -13,6 +13,7 @@
   </head>
   <body class="layout-top-nav">
     <div class="wrapper">
+      <%@include file="/include/main_navbar.jsp"%>
       <%@include file="/include/group_navbar.jsp"%>
       <div class="content-wrapper">
         <div class="container">
