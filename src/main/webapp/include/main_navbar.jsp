@@ -61,8 +61,9 @@
 
                     <li class="user-footer">
 <%--                        <a href="#" class="btn btn-default btn-flat">Profile</a>--%>
-                        <c:if test="${currentGroup.groupManager == login.userID}">
-                                <a href="/group/${currentGroup.groupID}/admin" class="btn btn-default btn-flat">그룹 관리</a>
+                        <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+                        <c:if test="${currentGroup.groupManager eq login.userID}">
+                            <a href="/group/${currentGroup.groupID}/admin" class="btn btn-default btn-flat">그룹 관리</a>
                         </c:if>
                         <a href="/user/logout" class="btn btn-default btn-flat float-right">로그아웃 </a>
                     </li>
